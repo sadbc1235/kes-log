@@ -1,0 +1,46 @@
+.menuWrap {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 60px;
+    padding-left: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.menu {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+.menu > svg > path {
+    width: 100%;
+    height: 100%;
+    fill: #ffffffbb;
+}
+.navBox {
+    width: 0%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    background-color: #0000009c;
+    overflow: hidden;
+    display: flex;
+    border-radius: 0% 50% 50% 0%;
+    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+.navBox.active {
+    width: 100%;
+    z-index: 99999;
+    border-radius: 0% 0% 0% 0%;
+}
+.navBox > nav {
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+}
+.navBox > .void {
+    width: calc(100% - 250px);
+    height: 100%;
+}
