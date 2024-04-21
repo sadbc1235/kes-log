@@ -11,7 +11,7 @@
 }
 
 .mainText {
-    padding: 230px 0px 0px;
+    padding: 10vw 0px 0px;
 }
 .mainText > .textBox {
     width: 100%;
@@ -22,7 +22,7 @@
 }
 .mainText > .textBox > p {
     color: #fff;
-    font-size: 80px;
+    font-size: clamp(2.5rem, 5vw, 5rem);
     font-family: "Tilt Neon", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -32,13 +32,14 @@
     "YROT" 0;
 }
 .mainText > .textBox > p:nth-child(1) {
-    margin-bottom: 30px;
+    margin-bottom: 2vw;
 }
 .mainText > .textBox > p > .word {
     color: #e4ba00;
+    display: inline-block;
 }
 .mainText > .textBox > p > .cursor {
-    height: 60px;
+    height: clamp(2rem, 5vw, 4rem);
     width: 4px;
     display: inline-block;
     background-color: #fff;
@@ -54,4 +55,38 @@
     to {
         opacity: 0;
     }
-  }
+}
+
+@media (750px < width < 1100px) {
+    .mainText {
+        padding: 13vw 0px 0px;
+    }
+    .mainText > .textBox > p:nth-child(1) {
+        margin-bottom: 1.5vw;
+    }
+}
+@media (width < 750px) {
+    .mainText {
+        padding: 17vw 0px 0px;
+    }
+}
+@media (width < 600px) {
+    .mainText {
+        padding: 25vw 0px 0px;
+    }
+}
+@media (width < 500px) {
+    .mainText {
+        padding: 30vw 0px 0px;
+    }
+}
+@media (width < 400px) {
+    .mainText {
+        padding: 35vw 0px 0px;
+    }
+}
+@media (width < 300px) {
+    .mainText {
+        padding: 45vw 0px 0px;
+    }
+}

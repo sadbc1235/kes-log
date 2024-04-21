@@ -5,7 +5,7 @@ import styles from "../styles/menu.module.css";
 import Link from "next/link";
 
 export default function Menu() {
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
 
     const activeNav = () => {
         setIsActive(!isActive);
