@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import styles from "../styles/menu.module.css";
+import Link from "next/link";
 
 export default function Menu() {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
     const activeNav = () => {
         setIsActive(!isActive);
@@ -24,10 +25,34 @@ export default function Menu() {
             <div className={isActive ? `${styles.navBox} ${styles.active}` : styles.navBox}>
                 <nav>
                     <div className={styles.profile}>
-
+                        <div className={styles.profileImg}>
+                            <img src="/mod.jpg" />
+                        </div>
+                        <p>Hi! I'm <span>KES</span>.</p>
                     </div>
                     <ul>
-
+                        <Link href="/aboutMe">
+                            <li>
+                                <div className={styles.menuBg} ></div>
+                                <span className={styles.menuTitle}>About me</span>
+                                <div className={styles.arrow}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+                                    </svg>
+                                </div>
+                            </li>
+                        </Link>
+                        <Link href="/project">
+                            <li>
+                                <div className={styles.menuBg} ></div>
+                                <span className={styles.menuTitle}>Projects</span>
+                                <div className={styles.arrow}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                        <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+                                    </svg>
+                                </div>
+                            </li>
+                        </Link>
                     </ul>
                 </nav>
                 <div className={styles.void}  onClick={activeNav}></div>

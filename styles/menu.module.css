@@ -44,3 +44,77 @@
     width: calc(100% - 250px);
     height: 100%;
 }
+
+.navBox > nav > .profile {
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 10px;
+}
+.navBox > nav > .profile > .profileImg {
+    width: 100%;
+    height: 170px;
+}
+.navBox > nav > .profile > .profileImg > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navBox > nav > .profile > p {
+    text-align: center;
+    padding: 10px 0px;
+    font-family: "Tilt Neon", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "XROT" 0,
+    "YROT" 0;
+}
+.navBox > nav > .profile > p > span {
+    color: #e4ba00;
+}
+.navBox > nav > ul li {
+    position: relative;
+    font-size: 17px;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+}
+.navBox > nav > ul li > .menuBg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 0%;
+    background-color: #e4ba0056;
+    transition: width 0.3s ease-in-out;
+}
+.navBox > nav > ul li:hover > .menuBg {
+    width: 100%;
+}
+.navBox > nav > ul li > .menuTitle {
+    color: #575757;
+    padding-left: 0px;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+}
+.navBox > nav > ul li:hover > .menuTitle {
+    color: #000;
+    padding-left: 10px;
+}
+.navBox > nav > ul li > .arrow {
+    width: 8px;
+    height: 12.8px;
+    z-index: 2;
+}
+.navBox > nav > ul li > .arrow > svg {
+    width: 100%;
+    height: 100%;
+}
+.navBox > nav > ul li > .arrow > svg > path {
+    fill: #8f8f8f;
+}

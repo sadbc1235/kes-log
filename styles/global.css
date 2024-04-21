@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Tilt+Neon&display=swap');
+
 html,
 body,
 div,
@@ -143,11 +145,6 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-a:hover {
-  text-decoration: underline;
-}
-
 * {
   box-sizing: border-box;
 }
