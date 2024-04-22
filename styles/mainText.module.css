@@ -32,16 +32,18 @@
     "YROT" 0;
 }
 .mainText > .textBox > p:nth-child(1) {
-    margin-bottom: 2vw;
+    margin-bottom: 1vw;
 }
 .mainText > .textBox > p > .word {
     color: #e4ba00;
     display: inline-block;
+    margin-top: 1vw;
 }
 .mainText > .textBox > p > .cursor {
-    height: clamp(2rem, 5vw, 4rem);
+    height: clamp(2rem, 4.1vw, 4.5rem);
     width: 4px;
     display: inline-block;
+    margin-top: 1vw;
     background-color: #fff;
     margin-left: 5px;
     animation: .8s infinite ease-in-out cursor;

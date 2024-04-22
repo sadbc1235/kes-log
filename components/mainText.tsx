@@ -59,7 +59,7 @@ export default function MainText() {
                 <div className={styles.textBox}>
                     <p>Keep Calm and</p>
                     <p>
-                        Keep Studying&nbsp;
+                        Keep Studying<br/>
                         <span className={styles.word}>{word}</span>
                         <span className={styles.cursor}></span>
                     </p>
