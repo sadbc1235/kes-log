@@ -118,3 +118,10 @@
 .navBox > nav > ul li > .arrow > svg > path {
     fill: #8f8f8f;
 }
+
+@media (width > 1700px) {
+    .navBox {
+        width: 250px;
+        border-radius: 0% 0% 0% 0%;
+    }
+}
