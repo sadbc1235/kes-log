@@ -13,3 +13,6 @@ table { border-collapse: collapse; }
   background: #cecece; /* 스크롤바 막대 색상 */
   border-radius: 12px 12px 12px 12px;
 }
+.swiper-pagination-bullet-active {
+  --swiper-pagination-color: #8ab0ef;
+}

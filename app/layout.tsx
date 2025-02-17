@@ -19,6 +19,7 @@ export default function RootLayout({
       <body>
         <CommonLayout>
           <Header/>
+          <div></div>
           {children}
         </CommonLayout>
       </body>
