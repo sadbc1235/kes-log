@@ -3,9 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-  --breakpoint-3xl: 1920px;
-}
 * {
   /* color: #333; */
   box-sizing: border-box;
@@ -31,4 +28,9 @@ table { border-collapse: collapse; }
 
 .blink {
   animation: blink-effect 1s step-end infinite;
+}
+@media (width < 1920px) {
+  .mainArticleMediaWidth {
+      width: 50%;
+  }
 }

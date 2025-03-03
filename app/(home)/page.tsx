@@ -51,7 +51,7 @@ export default function Home() {
       <ContentWrapper 
         title="Toy Project"
         subTitle="맛 한번 보시랑께요~"
-        className="pt-[130px]"
+        className="pt-[150px]"
       >
         <div className="w-full">
           <SlideWrapper

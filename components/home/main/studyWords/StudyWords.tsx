@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from './StudyWords.module.css';
 
 export default function StudyWords() {
     const [studyWord, setStudyWord] = useState('');
@@ -29,6 +30,7 @@ export default function StudyWords() {
   
     useEffect(() => {
       const words = ['HTML', 'CSS', 'JavaScript', 'React', 'Vue', 'Angular', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'PostgreSQL', 'GraphQL', 'RESTful API', 'WebSocket', 'Docker', 'Kubernetes', 'AWS', 'Azure', 'GCP', 'Firebase', 'OAuth', 'JWT', 'CI/CD', 'TDD', 'BDD', 'Jest', 'Mocha', 'Chai', 'Cypress', 'Puppeteer', 'Selenium', 'Jenkins', 'Git', 'GitHub', 'GitLab', 'Bitbucket', 'Slack', 'Jira', 'Confluence', 'Trello', 'Notion', 'Figma', 'Adobe XD', 'Sketch', 'Zeplin', 'InVision', 'WebStorm', 'VSCode', 'Sublime Text', 'Atom', 'Vim', 'IntelliJ', 'Eclipse', 'NetBeans', 'Visual Studio', 'Xcode', 'Android Studio', 'Postman', 'Insomni'];
+      // const words = ['Android Studio', 'Android Studio'];
       const word = words[wordIdx];
       handle.writeWord(word);
       setTimeout(() => { 
@@ -42,7 +44,7 @@ export default function StudyWords() {
 
     return (
         <div className="w-full relative z-10 text-white flex items-cnter justify-center mb-20 max-sm:mb-10">
-          <div className="pl-2 pr-2 w-1/3 max-xl:w-1/2 max-sm:w-3/4">
+          <div className={`pl-2 pr-2 w-2/5 max-xl:w-3/5 max-sm:w-3/4 mainArticleMediaWidth`}>
             <div
               className="text-6xl max-xl:text-5xl max-md:text-4xl max-sm:text-2xl"
             >
