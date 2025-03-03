@@ -29,7 +29,7 @@ export default function Header() {
         } 
         , onScroll: useCallback((event:any) => {
             const { scrollY } = window;
-            if (scrollY >= window.innerHeight) {
+            if (scrollY >= window.innerHeight-60) {
                 setIsActvieHeader(true);
             } else {
                 setIsActvieHeader(false);
@@ -52,9 +52,9 @@ export default function Header() {
         <>
             <header
                 className={`
-                    w-[calc(100%-270px)] h-[70px] fixed top-0 left-[270px] z-[11] flex items-center justify-between max-lg:left-[0px] max-lg:w-full pl-4 pr-4
-                    transition-all duration-200 ease-in-out ${isActvieHeader ? styleMap.header.active : styleMap.header.default}`}
-                // style={{border: '1px solid #fff'}}
+                    w-[calc(100%-270px)] h-[50px] fixed top-0 left-[270px] z-[11] flex items-center justify-between max-lg:left-[0px] max-lg:w-full pl-4 pr-4
+                    transition-all duration-200 ease-in-out ${isActvieHeader ? styleMap.header.active : styleMap.header.default}
+                `}
             >
                 <div>
                     <IconMenu 

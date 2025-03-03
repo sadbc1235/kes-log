@@ -10,7 +10,7 @@ export default function ContentWrapper({title, subTitle, className, menuUrl, chi
         className={"w-full relative flex flex-col items-center pt-20 "+className}
     >
         <div
-            className="min-w-[290px] w-2/3 max-2xl:w-[80%] max-xl:w-[90%] mb-10 flex justify-between items-center"
+            className="w-2/3 max-2xl:w-[80%] max-xl:w-[90%] mb-10 flex justify-between items-center"
         >
             <div>
                 <h1
@@ -33,7 +33,7 @@ export default function ContentWrapper({title, subTitle, className, menuUrl, chi
             </div>
         </div>
         <div
-            className="min-w-[290px] w-2/3 max-2xl:w-[80%] max-xl:w-[90%]"
+            className="w-2/3 max-2xl:w-[80%] max-xl:w-[90%]"
         >
             {children}
         </div>
