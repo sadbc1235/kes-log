@@ -16,3 +16,13 @@ table { border-collapse: collapse; }
 .swiper-pagination-bullet-active {
   --swiper-pagination-color: #8ab0ef;
 }
+
+@keyframes blink-effect {
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink-effect 1s step-end infinite;
+}

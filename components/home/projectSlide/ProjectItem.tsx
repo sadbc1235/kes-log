@@ -5,7 +5,7 @@ export default function ProjectItem({projectInfo}:{projectInfo:any}) {
 
     return (
         <div
-            className='w-full h-full overflow-hidden rounded-lg flex flex-col cursor-pointer transition-all duration-200 ease-in-out brightness-[0.75] hover:brightness-100'
+            className='w-full h-full overflow-hidden rounded-lg flex flex-col cursor-pointer'
         >
             <div className='w-full h-[50px] bg-[#EFF8FF] pl-5 flex justify-start items-center text-sm'>
                 Created at : {projectInfo.createDt}
@@ -19,6 +19,7 @@ export default function ProjectItem({projectInfo}:{projectInfo:any}) {
                     src={projectInfo.imgUrl}
                 />
             </div>
+            
             <div className='w-full h-[250px] bg-[#fff] p-4 relative'>
                 <h2 className='text-lg line-clamp-1 text-ellipsis break-all'>
                     {projectInfo.title}
