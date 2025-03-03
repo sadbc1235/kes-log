@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 
+* {
+  /* color: #333; */
+  box-sizing: border-box;
+}
 table, th, td { border: 1px solid #b8b8b8; }
 table { border-collapse: collapse; }
 ::-webkit-scrollbar {

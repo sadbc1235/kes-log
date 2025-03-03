@@ -26,9 +26,9 @@ export default function SlideWrapper({options, children}:{options:any, children:
 
   return (
     <div
-      className="w-full h-full flex gap-5 justify-center"
+      className="w-full h-full flex gap-5 max-md:gap-0 justify-center"
     >
-      <div className={'flex justify-center items-center '+(options.showPrevEl ? '' : 'hidden')}>
+      <div className={'flex justify-center items-center max-md:hidden '+(options.showPrevEl ? '' : 'hidden')}>
         <div ref={prevEl}>
           <IconArrowRight className={styleMap.trsCommon+styleMap.arrow+' rotate-180'}/>
         </div>
@@ -54,7 +54,7 @@ export default function SlideWrapper({options, children}:{options:any, children:
         {children}
       </Swiper>}
 
-      <div className={'flex justify-center items-center '+(options.showNaxtEl ? '' : 'hidden')}>
+      <div className={'flex justify-center items-center max-md:hidden '+(options.showNaxtEl ? '' : 'hidden')}>
         <div ref={nextEl}>
           <IconArrowRight className={styleMap.trsCommon+styleMap.arrow}/>
         </div>

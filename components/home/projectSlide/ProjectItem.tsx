@@ -19,7 +19,6 @@ export default function ProjectItem({projectInfo}:{projectInfo:any}) {
                     src={projectInfo.imgUrl}
                 />
             </div>
-            
             <div className='w-full h-[250px] bg-[#fff] p-4 relative'>
                 <h2 className='text-lg line-clamp-1 text-ellipsis break-all'>
                     {projectInfo.title}

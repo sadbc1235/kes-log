@@ -12,7 +12,7 @@ export default function Header() {
     const styleMap = {
         header: {
             default: ' text-[#fff]'
-            , active: ' text-[#333] bg-[#ffffff90] shadow-lg'
+            , active: ' text-[#333] bg-[#fffffff5] shadow-lg'
         }
         , svg: {
             default: ' fill-[#fff]'

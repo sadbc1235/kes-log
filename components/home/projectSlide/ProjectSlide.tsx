@@ -43,12 +43,12 @@ export default function ProjectSlide() {
 
     return (
         <div
-          className="relative w-3/5 h-3/5 flex justify-center pb-10"
+          className="relative w-1/2 flex justify-center pb-10"
         >
           <SlideWrapper
             options={{
               loop: true
-              , slidesPerView: 3
+              , slidesPerView: 'auto'
               , pagination: true
               , showPrevEl: true
               , showNaxtEl: true

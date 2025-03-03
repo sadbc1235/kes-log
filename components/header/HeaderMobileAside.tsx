@@ -7,8 +7,8 @@ export default function HeaderMobileAside({isShowMenu, showMenu}:any) {
         <>
             <div 
                 className={`
-                    w-[100vw] h-full fixed top-0 bg-[#00000080] z-[11]
-                    transition-all duration-200 ease-in-out ${isShowMenu ? 'left-[0px]' : 'left-[-100vw]'}
+                    w-full h-full fixed top-0 bg-[#00000080] z-[11]
+                    transition-all duration-200 ease-in-out ${isShowMenu ? 'left-[0px]' : 'left-[-100%]'}
                 `}
                 onClick={showMenu}
             ></div>
