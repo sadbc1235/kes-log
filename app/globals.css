@@ -3,7 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@theme {
+  --breakpoint-3xl: 1920px;
+}
 * {
   /* color: #333; */
   box-sizing: border-box;
