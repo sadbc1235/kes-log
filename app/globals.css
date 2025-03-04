@@ -33,4 +33,7 @@ table { border-collapse: collapse; }
   .mainArticleMediaWidth {
       width: 50%;
   }
+  .contentWrappereMediaWidth {
+    width: 70%;
+}
 }
