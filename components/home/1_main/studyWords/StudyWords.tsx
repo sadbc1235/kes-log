@@ -46,7 +46,7 @@ export default function StudyWords() {
         <div className="w-full relative z-10 text-white flex items-cnter justify-center mb-20 max-sm:mb-10">
           <div className={`pl-2 pr-2 w-2/5 max-xl:w-3/5 max-sm:w-3/4 mainArticleMediaWidth`}>
             <div
-              className="text-6xl max-xl:text-5xl max-md:text-4xl max-sm:text-2xl"
+              className="text-6xl max-xl:text-5xl max-md:text-4xl max-sm:text-3xl"
             >
               <h2>Keep Calm</h2>
               <h2 className="mt-2 max-sm:mt-0">& Keep Study</h2>

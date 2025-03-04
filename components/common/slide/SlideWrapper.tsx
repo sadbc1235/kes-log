@@ -45,7 +45,7 @@ export default function SlideWrapper({options, children}:{options:any, children:
           , nextEl: nextEl.current
         }} // prev, next button
         pagination={options.pagination}
-        className="w-full h-full rounded-lg"
+        className="w-full h-full rounded-xl"
         style={{
           margin: '0'
           , boxShadow: '1px 1px 10px 1px #00000020'
