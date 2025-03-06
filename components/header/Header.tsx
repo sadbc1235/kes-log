@@ -6,9 +6,11 @@ import IconSearch from "../common/icon/IconSearch";
 import Aside from "../sideBar/Aside";
 import HeaderSearch from "./HeaderSearch";
 import HeaderMobileAside from "./HeaderMobileAside";
+import { useSelectedLayoutSegment } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
-
+    const segment = useSelectedLayoutSegment();
     const styleMap = {
         header: {
             default: ' text-[#fff]'
@@ -42,11 +44,17 @@ export default function Header() {
     const [isActvieHeader, setIsActvieHeader] = useState<boolean>(false);
 
     useEffect(() => {
-        window.addEventListener('scroll', handle.onScroll, { passive: true });
-        return () => {
-            window.removeEventListener('scroll', handle.onScroll);
+        setIsActvieHeader(false);
+        if(segment === '(home)') {
+            window.addEventListener('scroll', handle.onScroll, { passive: true });
+            return () => {
+                window.removeEventListener('scroll', handle.onScroll);
+            }
+        } else {
+            setIsActvieHeader(true);
         }
-    }, []);
+        
+    }, [segment]);
 
     return (
         <>
@@ -58,21 +66,23 @@ export default function Header() {
             >
                 <div>
                     <IconMenu 
-                        className={`w-[30px] h-[30px] lg:hidden ${isActvieHeader ? styleMap.svg.active : styleMap.svg.default}`}
+                        className={`w-[30px] h-[30px] cursor-pointer lg:hidden ${isActvieHeader ? styleMap.svg.active : styleMap.svg.default}`}
                         onClick={handle.showMenu}
                     />
                 </div>
                 <div>
+                    <Link href="/">
                     <h2
                         className="text-lg text-center"
                         style={{fontFamily: 'Rubik Dirt'}}
                     >
                         KesLog
                     </h2>
+                    </Link>
                 </div>
                 <div>
                     <IconSearch 
-                        className={`w-[30px] h-[30px] ${isActvieHeader ? styleMap.svg.active : styleMap.svg.default}`}
+                        className={`w-[30px] h-[30px] cursor-pointer ${isActvieHeader ? styleMap.svg.active : styleMap.svg.default}`}
                         onClick={handle.showSearch}
                     />
                 </div>

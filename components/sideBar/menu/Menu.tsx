@@ -1,6 +1,7 @@
 'use client'
 
 import IconArrowRight from "@/components/common/icon/IconArrowRight";
+import Link from "next/link";
 import { useState, cloneElement } from "react";
 
 export default function Menu({menuList, children}:{menuList:Array<any>, children: React.ReactNode}) {
@@ -35,22 +36,24 @@ export default function Menu({menuList, children}:{menuList:Array<any>, children
             {
                 menuList.map((item: any, idx: number) => (
                     <li key={idx} className={"transition-all duration-200 ease-in-out overflow-hidden "+(isActiveList[idx] ? 'max-h-[500px]' : 'max-h-[44px]')}>
-                        <div 
-                            className={styleMap.menu+styleMap.trsCommon+styleMap.menuHover+(isActiveList[idx] ? styleMap.menuColor : styleMap.menuDefault)}
-                            onClick={handle.openSubMenu.bind(null, idx)}
-                        >
-                            <div className="flex items-center">
-                                {item.menuName} 
-                                <span
-                                    className="ml-2 border-[1px] border-[#1562e080] rounded-full text-sm text-[#1562e080] p-2 pt-0 pb-0"
-                                >
-                                    {item.articleCnt}
+                        <Link href={`${!item.subMenuList.length ? '/category/'+item.menuCode : ''}`}>
+                            <div 
+                                className={styleMap.menu+styleMap.trsCommon+styleMap.menuHover+(isActiveList[idx] ? styleMap.menuColor : styleMap.menuDefault)}
+                                onClick={handle.openSubMenu.bind(null, idx)}
+                            >
+                                <div className="flex items-center">
+                                    {item.menuName} 
+                                    <span
+                                        className="ml-2 border-[1px] border-[#1562e080] rounded-full text-sm text-[#1562e080] p-2 pt-0 pb-0"
+                                    >
+                                        {item.articleCnt}
+                                    </span>
+                                </div>
+                                <span className={(!!item.subMenuList.length ? 'block' : 'hidden')}>
+                                    <IconArrowRight className={styleMap.menuArrow+styleMap.trsCommon+(isActiveList[idx] ? ' rotate-90' : ' rotate-0')} />
                                 </span>
                             </div>
-                            <span className={(!!item.subMenuList.length ? 'block' : 'hidden')}>
-                                <IconArrowRight className={styleMap.menuArrow+styleMap.trsCommon+(isActiveList[idx] ? ' rotate-90' : ' rotate-0')} />
-                            </span>
-                        </div>
+                        </Link>
                         <ul className={"w-full grid grid-cols1 gap-3 pl-3"}>
                             {
                                 item.subMenuList.map((item:any, idx:number) => (

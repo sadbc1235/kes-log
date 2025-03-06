@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Logo() {
     return (
         <div
@@ -12,12 +14,14 @@ export default function Logo() {
             >
                 <img className="object-cover w-full h-full" src="/profile.webp" />
             </div>
+            <Link href="/">
             <h2
                 className="text-xl text-center mt-[15px]"
                 style={{fontFamily: 'Rubik Dirt'}}
             >
                 Kes_Log
             </h2>
+            </Link>
             <p
                 className="text-xs text-[#8f8f8f] mt-[5px]"
             >

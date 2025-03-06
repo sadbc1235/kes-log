@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from './StudyWords.module.css';
 
 export default function StudyWords() {
     const [studyWord, setStudyWord] = useState('');
@@ -49,7 +48,7 @@ export default function StudyWords() {
               className="text-6xl max-xl:text-5xl max-md:text-4xl max-sm:text-3xl"
             >
               <h2>Keep Calm</h2>
-              <h2 className="mt-2 max-sm:mt-0">& Keep Study</h2>
+              <h2 className="mt-2 max-sm:mt-0">& Keep Log</h2>
             </div>
             <div className="text-[#8ab0ef] font-bold mt-5 max-sm:mt-3 text-7xl max-xl:text-6xl max-md:text-5xl max-sm:text-3xl">
               {studyWord}

@@ -2,7 +2,7 @@ import IconEye from "@/components/common/icon/IconEye";
 export default function SmallCard({postInfo}:{postInfo:any}) {
     return (
         <div
-            className="h-[250px] p-4 grid grid-cols-[2fr_1fr] gap-4 rounded-xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer max-md:h-[200px] max-md:p-2" 
+            className="h-[250px] p-4 grid grid-cols-[2fr_1fr] gap-4 rounded-xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer max-md:h-[180px] max-md:p-2" 
             style={{boxShadow: '1px 1px 10px 1px #00000020'}}
         >
             <div className="relative">

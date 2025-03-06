@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <CommonLayout>
           <Header/>
-          <div className="row-span-2"></div>
+          <div></div>
           {children}
         </CommonLayout>
       </body>

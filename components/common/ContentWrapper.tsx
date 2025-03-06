@@ -3,7 +3,7 @@
 import Link from "next/link";
 import IconEllipsis from "./icon/IconEllipsis";
 
-export default function ContentWrapper({title, subTitle, className, menuUrl, children}:{title:string, subTitle:string, className?:string, menuUrl?:string, children: React.ReactNode}) {
+export default function ContentWrapper({title, subTitle, className, menuUrl, children}:{title?:string, subTitle?:string, className?:string, menuUrl?:string, children: React.ReactNode}) {
 
   return (
     <article
