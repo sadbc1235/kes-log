@@ -14,8 +14,6 @@ export default function Home() {
       <ProjectArticle/>
       <LatestArticle/>
       <PopluarArticle/>
-      
-      <article className="h-[2000px]"></article>
     </section>
   );
 }
