@@ -43,6 +43,7 @@ export default function LatestArticle() {
     <ContentWrapper
         title="Latest Posts"
         subTitle="따끈따끈한 신상이오!!"
+        className="pt-[120px]"
     >
         <div className="grid grid-cols-2 gap-8 max-sm:grid-cols-1 max-sm:gap-4">
             <LatestBigCard postInfo={testCard[0]} />

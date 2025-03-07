@@ -7,7 +7,7 @@ export default function ContentWrapper({title, subTitle, className, menuUrl, chi
 
   return (
     <article
-        className={"w-full relative flex flex-col items-center pt-[120px] "+className}
+        className={"w-full relative flex flex-col items-center "+className}
     >
         <div
             className="w-[60%] max-2xl:w-[80%] max-xl:w-[90%] mb-10 flex justify-between items-center contentWrappereMediaWidth"

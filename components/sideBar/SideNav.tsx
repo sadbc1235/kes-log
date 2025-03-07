@@ -3,7 +3,7 @@
 import Menu from "./menu/Menu";
 import MenuItem from "./menu/MenuItem";
 
-export default function SideNav() {
+export default function SideNav({showMenu}:{showMenu:any}) {
     const testMenuArr = [
         {
             menuCode: 'MENU_1'
@@ -32,16 +32,16 @@ export default function SideNav() {
             , menuName: 'MENU 2'
             , articleCnt: 0
             , subMenuList: [
-                {
-                    menuCode: 'MENU_2_1'
-                    , subMenuName: 'SUB MENU 2-1'
-                    , articleCnt: 0
-                }
-                , {
-                    menuCode: 'MENU_2_2'
-                    , subMenuName: 'SUB MENU 2-2'
-                    , articleCnt: 0
-                }
+                // {
+                //     menuCode: 'MENU_2_1'
+                //     , subMenuName: 'SUB MENU 2-1'
+                //     , articleCnt: 0
+                // }
+                // , {
+                //     menuCode: 'MENU_2_2'
+                //     , subMenuName: 'SUB MENU 2-2'
+                //     , articleCnt: 0
+                // }
             ]
         }
     ]
@@ -50,7 +50,7 @@ export default function SideNav() {
         <nav
             className="w-full p-3 pt-7"
         >
-            <Menu menuList={testMenuArr}>
+            <Menu menuList={testMenuArr} showMenu={showMenu}>
                 <MenuItem/>
             </Menu>
         </nav>

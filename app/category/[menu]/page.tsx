@@ -5,6 +5,7 @@ import BigCard from "@/components/common/card/BigCard";
 import SmallCard from "@/components/common/card/SmallCard";
 import ContentGridMax3 from "@/components/common/ContentGridMax3";
 import ContentWrapper from "@/components/common/ContentWrapper";
+import Pagination from "@/components/common/Pagination";
 import { useEffect, useState } from "react";
 
 export default function Menu({params, searchParams}: any) {
@@ -51,6 +52,7 @@ export default function Menu({params, searchParams}: any) {
 
   const menuCode = params.menu;
   const [innerWidth, setInnerWidth] = useState<number>(0);
+  const [lastIdx, setLastIdx] = useState<number>(7);
 
   useEffect(() => {
     setInnerWidth(window.innerWidth);
@@ -62,7 +64,7 @@ export default function Menu({params, searchParams}: any) {
 
   return (
     <section
-      className="w-full pt-[50px] relative"
+      className="w-full pt-[50px] pb-[100px] relative"
     >
       <CategoryTitle title={menuCode} subTitle="sub title" />
       <ContentWrapper
@@ -78,6 +80,7 @@ export default function Menu({params, searchParams}: any) {
           }
         </ContentGridMax3>
       </ContentWrapper>
+      {lastIdx > 1 && <Pagination lastIdx={lastIdx} />}
     </section>
   );
 }

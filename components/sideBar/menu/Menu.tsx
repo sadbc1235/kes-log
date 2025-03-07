@@ -2,9 +2,12 @@
 
 import IconArrowRight from "@/components/common/icon/IconArrowRight";
 import Link from "next/link";
-import { useState, cloneElement } from "react";
+import { useSelectedLayoutSegments } from "next/navigation";
+import { useState, cloneElement, useEffect } from "react";
 
-export default function Menu({menuList, children}:{menuList:Array<any>, children: React.ReactNode}) {
+export default function Menu({menuList, showMenu, children}:{menuList:Array<any>, showMenu?:any, children: React.ReactNode}) {
+    const segment = useSelectedLayoutSegments();
+
     const styleMap = {
         trsCommon: ' transition-all duration-200 ease-in-out'
         , ulCommon: ' w-full grid grid-cols1 gap-3'
@@ -18,15 +21,22 @@ export default function Menu({menuList, children}:{menuList:Array<any>, children
 
     const handle = {
         openSubMenu: (menuIdx:number, e:any) => {
-            if(!!menuList[menuIdx].subMenuList.length) {
-                const tempState = [...isActiveList];
-                tempState[menuIdx] = !tempState[menuIdx];
-                setIsActiveList(tempState);
+            const tempState = [...isActiveList];
+            tempState[menuIdx] = !tempState[menuIdx];
+            setIsActiveList(tempState);
+        }
+        , showMenu: (menuInfo:any) => {
+            if(!(menuInfo?.subMenuList || []).length && typeof showMenu == 'function') {
+                showMenu();
             }
         }
     }
 
     const [isActiveList, setIsActiveList] = useState<boolean[]>(new Array(menuList.length).fill(false));
+    const [menuCode, setMenuCode] = useState<string>('');
+    useEffect(() => {
+        setMenuCode(segment[1]);
+    }, [segment]);
 
     return (
         <ul
@@ -35,10 +45,16 @@ export default function Menu({menuList, children}:{menuList:Array<any>, children
         >
             {
                 menuList.map((item: any, idx: number) => (
-                    <li key={idx} className={"transition-all duration-200 ease-in-out overflow-hidden "+(isActiveList[idx] ? 'max-h-[500px]' : 'max-h-[44px]')}>
-                        <Link href={`${!item.subMenuList.length ? '/category/'+item.menuCode : ''}`}>
+                    <li 
+                        key={idx} 
+                        className={
+                            "transition-all duration-200 ease-in-out overflow-hidden "
+                            +(isActiveList[idx] || (item.menuCode == menuCode || !!item.subMenuList.filter((item:any) => item.menuCode == menuCode).length) ? 'max-h-[500px]' : 'max-h-[44px]')
+                        }
+                    >
+                        <Link href={`${!item.subMenuList.length ? '/category/'+item.menuCode : ''}`} onClick={handle.showMenu.bind(null, item)} >
                             <div 
-                                className={styleMap.menu+styleMap.trsCommon+styleMap.menuHover+(isActiveList[idx] ? styleMap.menuColor : styleMap.menuDefault)}
+                                className={styleMap.menu+styleMap.trsCommon+styleMap.menuHover+(isActiveList[idx] || (item.menuCode == menuCode || !!item.subMenuList.filter((item:any) => item.menuCode == menuCode).length) ? styleMap.menuColor : styleMap.menuDefault)}
                                 onClick={handle.openSubMenu.bind(null, idx)}
                             >
                                 <div className="flex items-center">
@@ -57,7 +73,7 @@ export default function Menu({menuList, children}:{menuList:Array<any>, children
                         <ul className={"w-full grid grid-cols1 gap-3 pl-3"}>
                             {
                                 item.subMenuList.map((item:any, idx:number) => (
-                                    children && cloneElement(children as React.ReactElement, {subMenuInfo: item, key: idx})
+                                    children && cloneElement(children as React.ReactElement, {subMenuInfo: item, key: idx, showMenu: handle.showMenu, menuCode: menuCode})
                                 ))
                             }
                         </ul>

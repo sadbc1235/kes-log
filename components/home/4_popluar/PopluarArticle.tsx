@@ -44,6 +44,7 @@ export default function PopluarArticle() {
     <ContentWrapper
         title="Popluar Posts"
         subTitle="HOT해 HOT해🔥"
+        className="pt-[120px]"
     >
         <ContentGridMax3>
             {

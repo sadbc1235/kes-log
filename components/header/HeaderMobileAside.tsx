@@ -12,7 +12,7 @@ export default function HeaderMobileAside({isShowMenu, showMenu}:any) {
                 `}
                 onClick={showMenu}
             ></div>
-            <Aside left={isShowMenu ? 'left-[0px]' : 'left-[-270px]'}/>
+            <Aside left={isShowMenu ? 'left-[0px]' : 'left-[-270px]'} showMenu={showMenu}/>
         </>
     );
   }
