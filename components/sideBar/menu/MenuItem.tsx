@@ -14,7 +14,7 @@ export default function MenuItem({subMenuInfo, showMenu, menuCode}:any) {
                     <IconArrowRight className="w-[10px] h-[10px]" />
                 </span>
                 <div className="flex items-center">
-                    {subMenuInfo.subMenuName} 
+                    {subMenuInfo.menuName} 
                     <span
                         className="ml-2 border-[1px] border-[#1562e080] rounded-full text-sm text-[#1562e080] p-2 pt-0 pb-0"
                     >

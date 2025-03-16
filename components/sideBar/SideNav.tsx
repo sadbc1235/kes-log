@@ -1,56 +1,42 @@
 'use client'
 
+import { useEffect, useState } from "react";
 import Menu from "./menu/Menu";
 import MenuItem from "./menu/MenuItem";
+import { callApi } from "@/common/script/constants";
+import { ComResult } from "@/common/interface";
 
 export default function SideNav({showMenu}:{showMenu:any}) {
-    const testMenuArr = [
-        {
-            menuCode: 'MENU_1'
-            , menuName: 'MENU 1'
-            , articleCnt: 12
-            , subMenuList: [
-                {
-                    menuCode: 'MENU_1_1'
-                    , subMenuName: 'SUB MENU 1-1'
-                    , articleCnt: 10
+    const api = {
+        /* 메뉴 목록록 조회 */
+        selectMenuList: () => {
+            callApi(
+                '/api/selectMenuList'
+                , {}
+                , (result:ComResult) => {
+                    if(result.resultCode != 'SUCCESS') {
+                        alert('메뉴 리스트 조회중 오류 발생');
+                        setMenuList([]);
+                    }
+        
+                    setMenuList(result.resultList);
                 }
-                , {
-                    menuCode: 'MENU_1_2'
-                    , subMenuName: 'SUB MENU 1-2'
-                    , articleCnt: 2
-                }
-                , {
-                    menuCode: 'MENU_1_3'
-                    , subMenuName: 'SUB MENU 1-3'
-                    , articleCnt: 0
-                }
-            ]
+            );
         }
-        , {
-            menuCode: 'MENU_2'
-            , menuName: 'MENU 2'
-            , articleCnt: 0
-            , subMenuList: [
-                // {
-                //     menuCode: 'MENU_2_1'
-                //     , subMenuName: 'SUB MENU 2-1'
-                //     , articleCnt: 0
-                // }
-                // , {
-                //     menuCode: 'MENU_2_2'
-                //     , subMenuName: 'SUB MENU 2-2'
-                //     , articleCnt: 0
-                // }
-            ]
-        }
-    ]
+    }
+
+    useEffect(() => {
+        /* 메뉴 목록 조회 */
+        api.selectMenuList();
+    }, [])
+
+    const [menuList, setMenuList] = useState<Array<any>>([]);
 
     return (
         <nav
             className="w-full p-3 pt-7"
         >
-            <Menu menuList={testMenuArr} showMenu={showMenu}>
+            <Menu menuList={menuList} showMenu={showMenu}>
                 <MenuItem/>
             </Menu>
         </nav>

@@ -1,5 +1,7 @@
 'use client'
 
+import { ComResult } from "@/common/interface";
+import { callApi } from "@/common/script/constants";
 import CategoryTitle from "@/components/category/CategoryTitle";
 import BigCard from "@/components/common/card/BigCard";
 import SmallCard from "@/components/common/card/SmallCard";
@@ -48,17 +50,50 @@ export default function Menu({params, searchParams}: any) {
     onResize: () => {
       setInnerWidth(window.innerWidth);
     }
+    /* 메뉴 정보 바인딩 */
+    , bindingMenuInfo: (resultData:any) => {
+      /* 메뉴 제목, 소제목 세팅 */
+      setMenuTitleInfo((resultData?.menuTitleInfo || initMenuTitleInfo));
+    }
   }
 
-  const menuCode = params.menu;
+  const api = {
+    /* 메뉴 정보, 게시물 목록 조회 */
+    selectMenuInfo: () => {
+      callApi(
+        '/api/selectMenuInfo'
+        , {menuCode: params.menu}
+        , (result:ComResult) => {
+          if(result.resultCode != 'SUCCESS') {
+            alert('메뉴 정보 조회중 오류 발생');
+            handle.bindingMenuInfo({});
+          }
+
+          /* 메뉴 정보 바인딩 */
+          handle.bindingMenuInfo(result.resultData);
+        }
+      );
+    }
+  }
+
+  interface MenuTitleInfo {
+    menuName:string
+    , subTitle:string
+  }
+  const initMenuTitleInfo = {menuName: '', subTitle: ''};
+  const [menuTitleInfo, setMenuTitleInfo] = useState<MenuTitleInfo>(initMenuTitleInfo);
   const [innerWidth, setInnerWidth] = useState<number>(0);
   const [lastIdx, setLastIdx] = useState<number>(7);
 
   useEffect(() => {
+    /* 메뉴 정보 조회 */
+    api.selectMenuInfo();
+
+    /* 브라우저 사이즈 조정 이벤트 추가 */
     setInnerWidth(window.innerWidth);
     window.addEventListener('resize', handle.onResize, { passive: true });
     return () => {
-        window.removeEventListener('resize', handle.onResize);
+      window.removeEventListener('resize', handle.onResize);
     }
   }, []);
 
@@ -66,7 +101,7 @@ export default function Menu({params, searchParams}: any) {
     <section
       className="w-full pt-[50px] pb-[100px] relative"
     >
-      <CategoryTitle title={menuCode} subTitle="sub title" />
+      <CategoryTitle title={menuTitleInfo.menuName} subTitle={menuTitleInfo.subTitle} />
       <ContentWrapper
         className="pt-[0px]"
       >
